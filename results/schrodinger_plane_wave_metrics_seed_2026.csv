@@ -1,0 +1,6 @@
+metric,value,device,seed,steps,train_seconds,reference_note
+relative_l2_error,0.004510636441409588,cpu,2026,12000,2958.813258761,Periodic plane-wave analytical solution; matched periodic domain and boundary conditions
+complex_abs_rmse,0.004510634113103151,cpu,2026,12000,2958.813258761,Periodic plane-wave analytical solution; matched periodic domain and boundary conditions
+max_absolute_error,0.007878935895860195,cpu,2026,12000,2958.813258761,Periodic plane-wave analytical solution; matched periodic domain and boundary conditions
+probability_integral_prediction_t0,6.264368057250977,cpu,2026,12000,2958.813258761,Periodic plane-wave analytical solution; matched periodic domain and boundary conditions
+probability_integral_reference_t0,6.2831854820251465,cpu,2026,12000,2958.813258761,Periodic plane-wave analytical solution; matched periodic domain and boundary conditions
