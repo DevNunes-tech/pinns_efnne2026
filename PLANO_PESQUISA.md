@@ -7,7 +7,8 @@ quantificando erro, convergência e custo computacional em problemas com referê
 ## Objetivos específicos
 1. Implementar PINN para a equação 1D do calor.
 2. Comparar a predição com a solução analítica em pontos de teste independentes.
-3. Implementar uma formulação real/imag. para a equação de Schrödinger dependente do tempo.
+3. Implementar uma formulação real/imag. para a equação de Schrödinger dependente do tempo,
+   usando uma onda plana periódica como referência analítica compatível.
 4. Avaliar erro, perda de treinamento, tempo de treinamento e densidade de probabilidade.
 5. Documentar limitações e condições sob as quais os resultados são reproduzíveis.
 
@@ -24,7 +25,7 @@ quantificando erro, convergência e custo computacional em problemas com referê
 - Erro absoluto máximo.
 - Tempo de treinamento (segundos).
 - Perdas separadas: EDP, condição inicial e contorno.
-- Schrödinger: densidade |psi|^2 e integral espacial de |psi|^2.
+- Schrödinger: densidade |psi|^2 e integral espacial de |psi|^2 em t=0.
 
 ## Controles experimentais necessários
 - Fixar semente aleatória e registrar dispositivo/versões.
@@ -35,8 +36,10 @@ quantificando erro, convergência e custo computacional em problemas com referê
 - Não afirmar superioridade sobre métodos numéricos sem uma comparação justa.
 
 ## Alerta metodológico importante
-A referência gaussiana de Schrödinger no script inicial é a solução livre em domínio infinito,
-enquanto o PINN recebe condições periódicas em domínio finito. Isso introduz incompatibilidade.
-Antes de publicar resultados de Schrödinger, substituir por um caso compatível (por exemplo,
-potencial harmônico com referência numérica de alta resolução e condições de contorno justificadas,
-ou uma solução periódica exata) e validar a formulação.
+O experimento principal em `src/schrodinger_pinn.py` usa uma onda plana livre, periódica e
+compatível com o domínio e as condições de contorno. Isso fornece uma referência analítica
+exata, mas não testa um pacote localizado. A implementação gaussiana exploratória permanece
+incompatível com o domínio periódico e não deve ser apresentada como resultado validado.
+Antes de tirar conclusões gerais, executar múltiplas sementes por configuração, verificar a
+conservação da norma ao longo do tempo e, se o objetivo incluir pacotes localizados, definir
+um problema de referência e condições de contorno compatíveis.
